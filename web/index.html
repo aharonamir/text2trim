@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101719" />
+    <title>Text2Trim</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Text2Trim home">
+        <span class="brand-mark" aria-hidden="true">T</span>
+        <span>text<span class="brand-accent">2</span>trim</span>
+      </a>
+      <div class="local-note"><span class="local-dot"></span> Browser preview · no upload</div>
+      <div class="worker-connection">
+        <div id="worker-status" class="worker-status" role="status" aria-live="polite">
+          <span class="status-indicator"></span>
+          <span id="worker-status-text">Checking local worker…</span>
+        </div>
+        <button id="worker-retry" class="text-button" type="button" hidden>Retry</button>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <section class="intro">
+        <h1>Find the moment<br /><span>worth keeping.</span></h1>
+        <p class="intro-copy">Choose a video to preview it. Video matching and export are not available in this development build yet.</p>
+      </section>
+
+      <section class="workspace" aria-label="Video editing workspace">
+        <aside class="source-panel panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Your video</h2>
+            </div>
+            <span class="local-tag">PRIVATE PREVIEW</span>
+          </div>
+
+          <label class="file-picker" for="video-file">
+            <span class="picker-icon" aria-hidden="true">＋</span>
+            <span class="picker-title">Choose a video</span>
+            <span class="picker-help">Choose an MP4, MOV, or MKV · preview stays in this browser</span>
+            <input id="video-file" type="file" accept=".mp4,.mov,.mkv,video/mp4,video/quicktime,video/x-matroska" />
+          </label>
+
+          <div id="source-details" class="source-details" hidden>
+            <video id="source-preview" controls playsinline></video>
+            <p id="preview-error" class="inline-error" role="alert" hidden></p>
+            <div class="file-meta">
+              <span id="file-name"></span>
+              <span id="file-duration" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="source-footnote">
+            <span class="lock-icon" aria-hidden="true">⌑</span>
+            This preview does not upload or modify your file. Matching and export are not connected yet.
+          </div>
+        </aside>
+
+        <section class="edit-panel panel">
+          <div class="panel-heading">
+            <div>
+              <h2>What should stay?</h2>
+            </div>
+          </div>
+
+          <div class="coming-soon" role="note">
+            <span class="coming-soon-mark" aria-hidden="true">◎</span>
+            <div>
+              <h3>Moment matching is the next step</h3>
+              <p>Chat instructions, evidence-backed ranges, and export will appear here when processing is connected. Nothing is sent to a remote service.</p>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <footer class="page-footer">
+        <span>Text2Trim · local development preview</span>
+        <span>No video upload · local processing is still in development</span>
+      </footer>
+    </main>
+  </body>
+</html>
