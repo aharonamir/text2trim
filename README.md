@@ -4,7 +4,11 @@ Text2Trim is a planned Windows desktop app for trimming local videos with natura
 
 ## Project status
 
-This repository contains the product specification, architecture plan, evaluation fixture, and a browser-based WSL development shell with a local Python worker health API. Media indexing, chat matching, job progress, export, and the eventual native Windows wrapper are not implemented yet.
+**Current stage: Phase 1 — setup and feasibility.** The browser-based WSL shell can select and preview a local video, display readable metadata, and report local worker health. Preview errors have a recovery message, and the interface clearly labels the unavailable processing workflow. The initial Git repository is pushed to `origin/master`.
+
+The evaluation manifest format and one synthetic CC0 fixture are ready. `qwen3-vl:4b` passed a three-run visual-motion smoke test, but the licensed 20-clip evaluation and representative Windows hardware benchmarks are still outstanding. Media indexing, chat matching, evidence review, job progress, export, and the native Windows wrapper are not implemented. Windows remains the product target; no Windows build has been produced or verified.
+
+**Next recommended task:** complete T002 by assembling and labeling the 20-clip licensed evaluation set. See [tasks.md](specs/001-natural-language-trimming/tasks.md) for the phase checklist and dependencies.
 
 ## Run the local development app
 

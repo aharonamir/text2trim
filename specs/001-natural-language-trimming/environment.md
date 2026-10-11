@@ -1,6 +1,7 @@
 # Development Environment Record
 
-**Checked**: 2026-10-10  
+**Environment checked**: 2026-10-10
+**Project status updated**: 2026-10-11
 **Environment**: Ubuntu 22.04.5 on WSL2; product target remains Windows 10/11.
 
 ## Available toolchain
@@ -25,7 +26,7 @@ UV_CACHE_DIR=/tmp/text2trim-uv-cache uv sync --python /usr/bin/python3.12
 UV_CACHE_DIR=/tmp/text2trim-uv-cache uv run python -m text2trim
 ```
 
-No project dependency changes were needed. The checkout's `.git` directory is empty, so Git status/history commands cannot inspect this workspace.
+No project dependency changes were needed. Git is initialized on `master`; the initial commit is pushed to `origin/master` (the user confirmed the push on 2026-10-11).
 
 The browser UI and Python API use only the standard library and static files; no Node packages or Windows GUI libraries are needed for this WSL development shell. The Codex command sandbox denies socket creation (`PermissionError: Operation not permitted`), so the server cannot be launched or browser/API round-tripped from this agent session. Syntax and contract JSON checks pass; launch it from a regular WSL terminal for an interactive check.
 
@@ -51,3 +52,7 @@ UV_CACHE_DIR=/tmp/text2trim-uv-cache uv run python scripts/benchmark_qwen3_vl.py
 
 
 This record describes the development environment only. It is not a Windows build or release verification.
+
+## Current implementation stage
+
+The project remains in Phase 1 (setup and feasibility). The browser shell now provides local video preview, duration/resolution display, preview error recovery, worker health/retry status, and a clear preview-only explanation. These UI refinements passed JavaScript syntax, HTML parsing, and the Impeccable static detector checks; recent changes have not yet been visually verified in a live browser. Media indexing, natural-language matching, candidate evidence/review, and export are not implemented. The next recommended task is T002: assemble and label the 20-clip licensed evaluation set.

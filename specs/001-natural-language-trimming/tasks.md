@@ -2,9 +2,15 @@
 
 Tasks are ordered by dependency. The first release includes both speech and visual matching. Each user story can be demonstrated independently after the shared foundation.
 
+## Current Status — 2026-10-11
+
+Work remains in **Phase 1: Setup and feasibility**. T001 is complete: the WSL browser shell and loopback worker health API are established. The UI supports local browser preview, duration/resolution metadata, preview error recovery, and an explicit preview-only state; matching, timeline review, and export remain unimplemented. The evaluation manifest and one synthetic CC0 fixture are in place, and `qwen3-vl:4b` passed a three-run smoke test. The initial Git repository has been pushed to `origin/master`.
+
+**Next recommended task: T002.** Assemble the 20-clip licensed evaluation set and label speech, scenes, objects, actions, and cut boundaries. Then continue T003 with the full model evaluation and representative Windows hardware measurements. Do not treat the synthetic smoke test as an accuracy or hardware-selection result.
+
 ## Phase 1: Setup and feasibility
 
-- [x] T001 Create a browser-served HTML/CSS/JavaScript development shell and local Python worker skeleton with a versioned loopback JSON API. Static checks pass; live server startup must be checked in a regular WSL terminal because the Codex sandbox denies socket creation. The native Windows wrapper remains deferred until the browser workflow is proven.
+- [x] T001 Create a browser-served HTML/CSS/JavaScript development shell and local Python worker skeleton with a versioned loopback JSON API. The WSL UI supports local source preview and worker health status; matching and export remain clearly marked as unavailable. Static checks pass; live browser validation of recent UI refinements remains pending. The native Windows wrapper remains deferred until the browser workflow is proven.
 - [ ] T002 Assemble 20 short, licensed evaluation clips and label speech, scene, object, action, and desired cut boundaries. Evaluation manifest format and one synthetic CC0 fixture are established; the 20-clip corpus remains pending.
 - [ ] T003 Benchmark candidate local ASR, embedding, VLM, and LLM models on a representative Windows CPU/GPU machine; record accuracy, latency, memory, and model size. `qwen3-vl:4b` passed a three-run smoke benchmark on the corrected synthetic motion fixture: all runs identified a red square moving right; wall times were 4.52 s, 3.77 s, and 3.77 s (about 105 output tokens/s on warm runs). See [environment.md](environment.md). The 20-clip benchmark, peak memory, and representative Windows hardware measurements remain pending.
 - [ ] T004 Choose model weights and packaging method from T003; document license and minimum hardware.
